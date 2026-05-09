@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticksmith Service Tracking Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="portal-shell">
+      <div class="portal-copy">
+        <span class="brand-mark">Ticksmith</span>
+        <p class="section-tag">Service Tracking</p>
+        <h1>Track your watch service</h1>
+        <p class="portal-text">
+          Enter the phone number used at drop-off to see all matching Ticksmith service orders.
+        </p>
+
+        <form id="trackingForm" class="tracking-form">
+          <label class="field field-wide">
+            <span>Phone Number</span>
+            <input type="tel" name="phone" placeholder="+1 555 123 4567" autocomplete="tel" required>
+          </label>
+
+          <div class="action-row">
+            <button type="submit" id="trackButton">Find Orders</button>
+            <p id="lookupStatus" class="form-status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+
+      <aside class="status-panel" aria-label="Service status overview">
+        <div class="watch-visual" aria-hidden="true">
+          <div class="watch-case">
+            <div class="watch-face">
+              <span class="hand hand-hour"></span>
+              <span class="hand hand-minute"></span>
+              <span class="pin"></span>
+            </div>
+          </div>
+        </div>
+        <p class="panel-label">Current Order</p>
+        <h2 id="panelOrderId">Ready to search</h2>
+        <p id="panelSummary" class="panel-summary">All service orders linked to your phone number will appear after lookup.</p>
+      </aside>
+    </section>
+
+    <section id="resultCard" class="result-card hidden" aria-live="polite">
+      <div class="result-heading">
+        <div>
+          <p class="section-tag">Orders Found</p>
+          <h2 id="resultTitle">Service orders</h2>
+        </div>
+        <span id="statusPill" class="status-pill">0 orders</span>
+      </div>
+
+      <div id="ordersList" class="orders-list"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
